@@ -8,7 +8,7 @@ Everything here runs **natively on Windows 11**. No WSL, no Ubuntu, no Docker, n
 
 If you just want to use the plugin on your PS4 without setting up the compilation tools (LLVM/OpenOrbis), you can download the pre-compiled `.prx` file directly:
 
-1. Go to the [Releases page]([../../releases/latest](https://github.com/pozpo/ps4-xbox-series-plugin/releases/tag/v1.0.0)).
+1. Go to the [Releases page](../../releases/latest).
 2. Download **`xbox_series.prx`** from the latest release assets in the ZIP file.
 3. Copy it directly to `/data/GoldHEN/plugins/` on your PS4 via FTP.
 
