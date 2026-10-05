@@ -141,11 +141,9 @@ Requirements: PS4 with **GoldHEN loaded** (your usual jailbreak routine), PS4 an
    user/password = anything (the original plugin's Makefile used `ps4` / `ps4`). Click *Quickconnect*.
    GoldHEN has a built-in FTP server on port 2121; if the connection is refused, enable the FTP option in GoldHEN's
    settings menu (menu layout varies by GoldHEN version — **unverified for your version**).
-3. **Remove the old plugin** if installed: delete `xbox_controller.prx` and remove its line from `plugins.ini`
-   (two plugins hooking the same functions will fight).
-4. **Upload** `dist\xbox_series.prx` to `/data/GoldHEN/plugins/` on the PS4.
+3. **Upload** `xbox_series.prx` to `/data/GoldHEN/plugins/` on the PS4.
    (Shortcut with no FTP program: `powershell -ExecutionPolicy Bypass -File build.ps1 -Upload -Ps4Ip 192.168.1.50`.)
-5. **Edit `/data/GoldHEN/plugins.ini`** (download it, edit it in Notepad, upload it). Add:
+4. **Edit `/data/GoldHEN/plugins.ini`** (download it, edit it in Notepad, upload it). Add:
    ```
    [default]
    /data/GoldHEN/plugins/xbox_series.prx
@@ -155,11 +153,11 @@ Requirements: PS4 with **GoldHEN loaded** (your usual jailbreak routine), PS4 an
    [CUSA00000]
    /data/GoldHEN/plugins/xbox_series.prx
    ```
-6. *(Optional)* upload `xbox_series.ini.example` as `/data/GoldHEN/xbox_series.ini` and edit it (settings in section 6).
-7. **Log in the extra users.** The second/third player must be a **logged-in PS4 user**
+5. *(Optional)* upload `xbox_series.ini.example` as `/data/GoldHEN/xbox_series.ini` and edit it (settings in section 6).
+6. **Log in the extra users.** The second/third player must be a **logged-in PS4 user**
    (*PS4 home → press the PS button on a controller → choose a profile*, or *Add user*).
    This is a PS4 rule, not a plugin rule: a game only opens controllers for logged-in users.
-8. **Start the game.** You should see a pop-up `Xbox Series plugin 1.0.0 loaded`.
+7. **Start the game.** You should see a pop-up `Xbox Series plugin 1.0.0 loaded`.
 
 **Removing the plugin if something goes wrong:** delete its line from `plugins.ini` (or delete the `.prx`) and restart
 the game. Nothing else on the PS4 is modified.
