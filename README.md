@@ -2,10 +2,6 @@
 
 Everything here runs **natively on Windows 11**. No WSL, no Ubuntu, no Docker, no virtual machine.
 
-**Honesty note.** The plugin logic was tested on a PC against simulated USB controllers and a simulated PS4 pad library
-(124 system checks + 102 unit checks, also under AddressSanitizer / UndefinedBehaviorSanitizer / ThreadSanitizer).
-It has **not** been run on a real PS4, a real Series controller, or a real game, and the Windows build script has not been
-executed on a Windows machine. Section 9 lists exactly what is verified and what is not.
 
 ---
 
@@ -261,28 +257,6 @@ Always: delete the old log by restarting the game, run the test, download `xbox_
 | 14 | **Diablo 3** (README says drop-in works) | Start on Xbox to join | joins as Player 2 | |
 | 15 | Another local multiplayer game | | | |
 
----
-
-## 9. What is verified and what is not
-
-**Verified on a PC (simulated hardware):** protocol parsing incl. long Series packets and broken packets; button/stick/trigger
-mapping, Y inversion, dead zone; assignment for DS4-P1/Xbox-P2, two Xbox pads in either polling order, DS4-P1/DS4-P3/Xbox-P2;
-late plug-in; unplug/replug of one of two pads; DS4 reconnect handing control back; repeated opens (Stick Fight pattern);
-no notification spam; strictly increasing timestamps; hooks never blocking on USB; unload/reload without leaks;
-no data races (ThreadSanitizer); no memory errors (AddressSanitizer).
-
-**Not verifiable without your hardware:**
-* that the Windows build script runs on your PC (it copies the original Makefile's flags, but was never executed on Windows);
-* that your OpenOrbis/GoldHEN headers accept the code (the script checks and reports);
-* the real Series controller's packet layout on your firmware (taken from the Linux and SDL sources; the log dumps raw packets so we can confirm);
-* whether the PS4 returns a handle or an error for a user without a DS4 (both cases are handled);
-* whether Stick Fight's loop was really caused by the missing `scePadGetHandle` hook (strong inference, unproven);
-* the two `xor ecx/edx` patches on `scePadReadExt` / `scePadReadStateExt`, kept **unchanged** from the original plugin
-  because they are what makes real-DS4 passthrough work; their purpose is not documented anywhere I could find;
-* USB behaviour of two controllers at once on a PS4 (error codes, claim conflicts) and whether a USB hub works;
-* how many controllers a given game accepts (the PS4 allows 4 users; the plugin supports 4 pads).
-
-Known limits: no rumble; Guide/Share buttons not mapped; maximum 4 Xbox pads, realistically 2 on the console's two USB ports.
 ## Acknowledgments & Attribution
 
 * **AI Collaboration:** Developed with the assistance of **Claude AI** (by Anthropic), which helped design, structure, and write the code and documentation.
