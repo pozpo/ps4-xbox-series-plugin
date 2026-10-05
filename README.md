@@ -11,6 +11,7 @@ If you just want to use the plugin on your PS4 without setting up the compilatio
 1. Go to the [Releases page](https://github.com/pozpo/ps4-xbox-series-plugin/releases/latest).
 2. Download **`xbox_series.prx`** from the latest release assets found in the ZIP file.
 3. Copy it directly to `/data/GoldHEN/plugins/` on your PS4 via FTP.
+4. then go to step 4.
 
 *For developers who want to build from source, follow the instructions below.*
 
