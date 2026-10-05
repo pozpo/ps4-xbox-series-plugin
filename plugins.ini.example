@@ -1,0 +1,12 @@
+; GoldHEN plugins.ini  (copy to /data/GoldHEN/plugins.ini on the PS4)
+;
+; Lines under [default] load for EVERY game. Recommended: use a section for
+; one specific game instead (replace CUSA00000 with that game's title ID):
+;
+;   [CUSA00000]
+;   /data/GoldHEN/plugins/xbox_series.prx
+;
+; If you already have a plugins.ini, just add the line for xbox_series.prx.
+
+[default]
+/data/GoldHEN/plugins/xbox_series.prx
