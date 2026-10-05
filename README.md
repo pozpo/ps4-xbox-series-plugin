@@ -242,30 +242,6 @@ Notable lines:
 | `slot N: 100 instant USB errors in a row … -> dead` | controller unplugged or stuck; it is re-opened automatically |
 
 ---
-
-## 8. Test plan (do them in this order; report back what I ask for)
-
-Always: delete the old log by restarting the game, run the test, download `xbox_series.log`.
-**Report for every test:** (a) pass/fail, (b) the pop-ups you saw, (c) the log file, (d) game name + PS4 firmware + GoldHEN version.
-
-| # | Setup | Do | Expected | Failure means |
-|---|---|---|---|---|
-| 1 | **One Xbox** only (no DS4 needed if you can start the game) plugged before launch, one user | launch a game, press all buttons, move sticks, press triggers | `loaded`, `Xbox Series #1 connected`, `input OK`; game reacts. Set `allow_player1=1` for this test if the Xbox is the only pad | no `connected` → USB open problem (log has code); `connected` but no `input OK` → see raw packets in log |
-| 2 | **DS4 = Player 1, Xbox = Player 2** (second user logged in) | launch, make Player 2 join (Start) | after ~0.3 s: `Xbox #1 -> Player 2`; DS4 keeps working | assignment missing → send log; P1 DS4 broken → stop and tell me immediately |
-| 3 | **Two Xbox** + DS4 = P1, users 2 and 3 logged in (needs both USB ports) | join P2, P3 | `Xbox #1 -> Player 2`, `Xbox #2 -> Player 3`, no cross-talk | wrong order → set `xbox_players=2,3` and tell me |
-| 4 | DS4 P1 + **two Xbox** | same as 3 | as 3 | |
-| 5 | **DS4 = P1, DS4 = P3, Xbox = P2** | join all three | Xbox goes to P2, both DS4s untouched | Xbox on P3 → log |
-| 6 | Xbox **plugged in before** launching | | as test 2 | |
-| 7 | Xbox **plugged in after** the game started | plug in, wait ~2 s | `Xbox Series #1 connected`, then assignment | if the game never uses it, the game may have given up on that player: try test 8 order |
-| 8 | **Unplug and replug** during play | unplug, wait 3 s, replug | `disconnected`, later `connected`; same player gets it back, no second assignment pop-up | |
-| 9 | **Rapid button taps** | mash A as fast as you can | every tap registers | missed taps → send log + describe |
-| 10 | **Hold buttons** | hold each button 5 s | stays pressed, no flicker | |
-| 11 | **Sticks** | slowly circle both sticks, release | smooth movement, rests at centre without drift | drift → raise `stick_deadzone` |
-| 12 | **Triggers** | slowly press LT/RT | smooth analog response | |
-| 13 | **Stick Fight: The Game**, DS4 P1, Xbox P2 (and P3 with a second Xbox) | join with the Xbox | joins **once**; **no** repeated pop-ups | still looping → send the log: the `scePadOpen`/`scePadGetHandle` lines show exactly what the game does |
-| 14 | **Diablo 3** (README says drop-in works) | Start on Xbox to join | joins as Player 2 | |
-| 15 | Another local multiplayer game | | | |
-
 ## Acknowledgments & Attribution
 
 * **AI Collaboration:** Developed with the assistance of **Claude AI** (by Anthropic), which helped design, structure, and write the code and documentation.
