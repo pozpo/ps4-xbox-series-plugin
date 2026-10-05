@@ -1,4 +1,4 @@
-# Xbox Series X|S plugin for PS4 (GoldHEN) — complete beginner guide
+# Wired Xbox Series X|S plugin for PS4 (GoldHEN) — complete beginner guide
 
 Everything here runs **natively on Windows 11**. No WSL, no Ubuntu, no Docker, no virtual machine.
 
