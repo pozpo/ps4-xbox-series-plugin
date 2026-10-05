@@ -283,3 +283,10 @@ no data races (ThreadSanitizer); no memory errors (AddressSanitizer).
 * how many controllers a given game accepts (the PS4 allows 4 users; the plugin supports 4 pads).
 
 Known limits: no rumble; Guide/Share buttons not mapped; maximum 4 Xbox pads, realistically 2 on the console's two USB ports.
+## Acknowledgments & Attribution
+
+* **AI Collaboration:** Developed with the assistance of **Claude AI** (by Anthropic), which helped design, structure, and write the code and documentation.
+* **Original References:** This project builds upon concepts and code structures from:
+  * [crucifix86/xbox_controller_plugin](https://github.com/crucifix86/xbox_controller_plugin)
+  * [xfangfang/remotePad](https://github.com/xfangfang/remotePad)
+    
