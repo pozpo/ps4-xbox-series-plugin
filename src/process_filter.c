@@ -1,4 +1,3 @@
-@'
 /*
  * Process filter implementation. See process_filter.h.
  */
@@ -52,4 +51,3 @@ int xbs_title_excluded(const char* titleid, const char* list) {
     }
     return 0;
 }
-'@ | Set-Content -Path C:\xbox_series_plugin\src\process_filter.c -Encoding ASCII
