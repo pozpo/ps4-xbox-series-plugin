@@ -102,6 +102,5 @@ void xbs_notify_str(const char* message) {
     req.type = NotificationRequest;
     req.targetId = -1;
     strncpy(req.message, message, sizeof(req.message) - 1);
-    sceKernelSendNotificationRequest(0, &req, siz
-    eof(req), 0);
+    sceKernelSendNotificationRequest(0, &req, sizeof(req), 0);
 }
