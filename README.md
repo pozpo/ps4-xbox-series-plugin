@@ -153,7 +153,7 @@ Requirements: PS4 with **GoldHEN loaded** (your usual jailbreak routine), PS4 an
    [CUSA00000]
    /data/GoldHEN/plugins/xbox_series.prx
    ```
-5. *(Optional)* upload `xbox_series.ini.example` as `/data/GoldHEN/xbox_series.ini` and edit it (settings in section 6).
+5. you MOST upload `xbox_series.ini.example` as `/data/GoldHEN/xbox_series.ini` and edit it (settings in section 6).
 6. **Log in the extra users.** The second/third player must be a **logged-in PS4 user**
    (*PS4 home → press the PS button on a controller → choose a profile*, or *Add user*).
    This is a PS4 rule, not a plugin rule: a game only opens controllers for logged-in users.
