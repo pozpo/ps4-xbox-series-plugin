@@ -89,5 +89,4 @@ void settings_parse_text(XbsSettings* s, const char* text);
 /* Reads XBS_CONFIG_PATH (if it exists) into g_settings. */
 void settings_load(void);
 
-#endif /
-* XBS_CONFIG_H */
+#endif /* XBS_CONFIG_H */
